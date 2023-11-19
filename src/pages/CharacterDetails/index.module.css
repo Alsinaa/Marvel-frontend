@@ -1,0 +1,76 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  gap: 16px;
+}
+
+.comics {
+  width: 200px;
+}
+
+.comic_info {
+  flex: 1;
+  position: sticky;
+  top: 90px;
+  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: rgba(240, 240, 240, 0.1);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.image {
+  width: 300px;
+}
+
+.image img {
+  display: block;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  text-align: right;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.description {
+  opacity: 0.6;
+  margin-top: auto;
+  max-width: 500px;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .comics {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .comic_info {
+    flex-direction: column;
+    position: static;
+  }
+
+  .image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .content {
+    text-align: left;
+    padding: 16px;
+  }
+}

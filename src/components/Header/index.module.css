@@ -1,0 +1,108 @@
+/* cf. https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/ */
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(5, 5, 5, 0.5);
+  align-items: stretch;
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+.logo {
+  width: 70px;
+  aspect-ratio: 1;
+  background-color: var(--red);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_image {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  gap: 12px;
+  margin-inline: 12px;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  margin-right: auto;
+}
+
+.auth {
+  display: flex;
+  gap: 8px;
+}
+
+.button {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: transparent 1px solid;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  color: var(--red);
+  border-color: #ffffff;
+}
+
+.buttonBars {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .buttonBars {
+    display: flex;
+    width: 70px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .wrapper {
+    position: absolute;
+    top: 70px;
+    right: 0px;
+    width: 100%;
+    background-color: rgba(5, 5, 5, 0.9);
+    align-items: stretch;
+    margin: 0;
+    padding: 16px;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .wrapper.inactive {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav,
+  .auth {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .auth {
+    margin-top: 32px;
+  }
+}

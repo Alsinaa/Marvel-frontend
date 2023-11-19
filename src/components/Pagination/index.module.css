@@ -1,0 +1,53 @@
+.pagination {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block: 48px;
+  color: white;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.button {
+  color: currentColor;
+  font-size: 32px;
+  transition: color 0.3s ease;
+}
+
+.button:hover {
+  color: var(--red);
+}
+
+.buttonDesact {
+  color: currentColor;
+  pointer-events: none;
+  cursor: auto;
+  font-size: 32px;
+
+  opacity: 0.6;
+}
+
+.counter {
+  font-weight: bold;
+}
+
+.page {
+  color: currentColor;
+  display: flex;
+  gap: 8px;
+}
+
+.input {
+  color: currentColor;
+  font-size: 16px;
+  border: none;
+  padding: 8px 16px;
+  background-color: rgba(5, 5, 5, 0.5);
+  border-radius: 0px 16px 0px 16px;
+  outline: none;
+}

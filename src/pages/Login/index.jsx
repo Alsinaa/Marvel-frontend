@@ -2,6 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import styles from "./index.module.css";
+
+import wallpaper from "../../assets/home-wallpaper.jpeg";
+
 const Login = ({ handleToken }) => {
   const navigate = useNavigate();
 
@@ -30,8 +34,8 @@ const Login = ({ handleToken }) => {
           }
         );
 
-        console.log(response.data);
-        handleToken(response.data.token, response.data.account.username);
+        // console.log(response.data);
+        handleToken(response.data.token, response.data.username);
         navigate("/");
       } catch (error) {
         console.log(error.response.data);
@@ -45,22 +49,25 @@ const Login = ({ handleToken }) => {
     fetchData();
   };
   return (
-    <main>
-      <form
-        className="sign-log"
-        onSubmit={(event) => {
-          handleSubmit(event);
-        }}
-      >
-        <div>
-          <h1>Formulaire de connexion</h1>
-          <div className="sign-log-input">
-            <div>
+    <main className="main">
+      <img className="wallpaper-image" src={wallpaper} alt="wallpaper" />
+      <div className={styles.wrapper}>
+        <form
+          className={styles.form}
+          onSubmit={(event) => {
+            handleSubmit(event);
+          }}
+        >
+          <div className={styles.form_content}>
+            <h1>Formulaire de connexion</h1>
+
+            <div className={styles.element}>
               <label htmlFor="email">Email</label>
               <input
+                className={styles.input}
                 type="email"
                 id="email"
-                placeholder="wolf@mail.com"
+                placeholder="marvel@mail.com"
                 name="email"
                 value={email}
                 onChange={(event) => {
@@ -68,12 +75,13 @@ const Login = ({ handleToken }) => {
                 }}
               />
             </div>
-            <div>
+            <div className={styles.element}>
               <label htmlFor="password">Password</label>
               <input
+                className={styles.input}
                 type="password"
                 id="password"
-                placeholder="****"
+                placeholder="******"
                 name="password"
                 value={password}
                 onChange={(event) => {
@@ -84,10 +92,15 @@ const Login = ({ handleToken }) => {
           </div>
 
           {errorMessage && <p>{errorMessage}</p>}
-          <button type="submit">Se Connecter</button>
-          <Link to={"/signup"}>Pas encore de compte ? Inscris-toi !</Link>
-        </div>
-      </form>
+
+          <button className={styles.button} type="submit">
+            Se Connecter
+          </button>
+        </form>
+        <Link className={styles.link} to={"/signup"}>
+          Pas encore de compte ? Inscris-toi !
+        </Link>
+      </div>
     </main>
   );
 };

@@ -4,7 +4,15 @@ import { useState } from "react";
 import "./App.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faMagnifyingGlass,
+  faCircleArrowRight,
+  faCircleArrowLeft,
+  faSpinner,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 
 //COMPONENTS
 import Header from "./components/Header";
@@ -12,7 +20,6 @@ import Header from "./components/Header";
 // PAGES
 import Home from "./pages/Home";
 import Comics from "./pages/Comics";
-import ComicsByCharacter from "./pages/ComicsByCharacter";
 import Comic from "./pages/Comic";
 import Characters from "./pages/Characters";
 import CharacterDetails from "./pages/CharacterDetails";
@@ -20,7 +27,15 @@ import Favorites from "./pages/Favorites";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
-library.add(faHeart);
+library.add(
+  faHeart,
+  farHeart,
+  faMagnifyingGlass,
+  faCircleArrowRight,
+  faCircleArrowLeft,
+  faSpinner,
+  faBars
+);
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
@@ -42,7 +57,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/comics" element={<Comics />} />
-        <Route path="/comics/:characterId" element={<ComicsByCharacter />} />
         <Route path="/comic/:comicId" element={<Comic />} />
         <Route path="/characters" element={<Characters />} />
         <Route path="/character/:characterId" element={<CharacterDetails />} />

@@ -2,6 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import styles from "./index.module.css";
+
+import wallpaper from "../../assets/home-wallpaper.jpeg";
+
 const Signup = ({ handleToken }) => {
   const navigate = useNavigate();
 
@@ -34,9 +38,9 @@ const Signup = ({ handleToken }) => {
         }
       );
 
-      console.log(response.data);
+      // console.log(response.data);
 
-      handleToken(response.data.token, response.data.account.username);
+      handleToken(response.data.token, response.data.username);
       navigate("/");
     } catch (error) {
       console.log(error.response.data);
@@ -51,21 +55,23 @@ const Signup = ({ handleToken }) => {
   };
 
   return (
-    <main>
-      <form
-        className="sign-log"
-        onSubmit={(event) => {
-          handleSubmit(event);
-        }}
-      >
-        <div>
-          <h1>Formulaire d'inscription</h1>
-          <div className="sign-log-input">
-            <div>
+    <main className="main">
+      <img className="wallpaper-image" src={wallpaper} alt="wallpaper" />
+      <div className={styles.wrapper}>
+        <form
+          className={styles.form}
+          onSubmit={(event) => {
+            handleSubmit(event);
+          }}
+        >
+          <div className={styles.form_content}>
+            <h1>Formulaire d'inscription</h1>
+            <div className={styles.element}>
               <label htmlFor="username">Nom d'utilisateur</label>
               <input
+                className={styles.input}
                 type="text"
-                placeholder="Jane Doe"
+                placeholder="marvel"
                 name="username"
                 id="username"
                 value={username}
@@ -75,11 +81,12 @@ const Signup = ({ handleToken }) => {
               />
             </div>
 
-            <div>
+            <div className={styles.element}>
               <label htmlFor="email">Email</label>
               <input
+                className={styles.input}
                 type="email"
-                placeholder="janeDoe@mail.com"
+                placeholder="marvel@mail.com"
                 name="email"
                 id="email"
                 value={email}
@@ -88,11 +95,13 @@ const Signup = ({ handleToken }) => {
                 }}
               />
             </div>
-            <div>
+
+            <div className={styles.element}>
               <label htmlFor="password">Password</label>
               <input
+                className={styles.input}
                 type="password"
-                placeholder="azerty"
+                placeholder="******"
                 name="password"
                 id="password"
                 value={password}
@@ -101,15 +110,17 @@ const Signup = ({ handleToken }) => {
                 }}
               />
             </div>
-          </div>
 
-          {errorMessage && (
-            <p style={{ color: "red", margin: "8px" }}> {errorMessage}</p>
-          )}
-          <button type="submit">Valider</button>
-          <Link to={"/login"}>Tu as déjà un compte ? Connecte-toi !</Link>
-        </div>
-      </form>
+            {errorMessage && <p> {errorMessage}</p>}
+          </div>
+          <button className={styles.button} type="submit">
+            Valider
+          </button>
+        </form>
+        <Link className={styles.link} to={"/login"}>
+          Tu as déjà un compte ? Connecte-toi !
+        </Link>
+      </div>
     </main>
   );
 };

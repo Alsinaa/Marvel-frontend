@@ -1,50 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Kanit:wght@500&family=Montserrat&family=Roboto:wght@400;700&display=swap");
 
+:root {
+  --red: #f0141e;
+}
+
 body {
   font-family: "Chakra Petch", sans-serif;
-  /* background-color: #16262e;
-  color: white; */
+  font-size: 16px;
+  background-color: black;
 }
 
-/* HEADER  */
-.header {
-  background-color: lightcyan;
-  height: 60px;
-}
-.logo-header {
-  height: 40px;
-  width: 100px;
+.wallpaper-image {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
 }
 
-/* COMICS  */
-.comics img {
-  object-fit: cover;
-  height: 300px;
-  width: 250px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  border-radius: 10px;
+.main {
+  padding-top: 90px;
+  padding-bottom: 24px;
+  margin: auto;
+  max-width: 1280px;
+  width: 80%;
 }
-/* CHARACTERS */
-.characters img {
-  object-fit: cover;
-  height: 300px;
-  width: 250px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  border-radius: 10px;
-}
-/* COMICS PAR CHARACTERS  */
-.container {
-  height: 300px;
-  width: 250px;
-}
-.comics-character img {
-  border: 2px solid yellow;
-  object-fit: cover;
-  height: 300px;
-  width: 250px;
+
+@media screen and (max-width: 768px) {
+  .main {
+    width: 90%;
+  }
 }

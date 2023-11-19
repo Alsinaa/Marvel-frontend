@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-import noLogo from "../assets/no-logo.png";
+import wallpaper from "../../assets/favoris-wallpaper.jpeg";
+import noLogo from "../../assets/no-logo.png";
+
+import styles from "./index.module.css";
 
 const Favorites = () => {
   const favCharCookie = Cookies.get("FavCharact");
@@ -10,19 +13,19 @@ const Favorites = () => {
   const navigate = useNavigate();
 
   return (
-    <main>
-      <div className="container">
-        <h1>Mes favoris </h1>
+    <main className="main">
+      <img className="wallpaper-image" src={wallpaper} alt="wallpaper" />
+      <div className={styles.container}>
+        <h1 className={styles.title}>Mes favoris </h1>
 
-        <section className="all-fav">
-          <div>
-            <h2>Vos personnages favoris</h2>
-            <div className="fav-char">
+        <section className={styles.wrapper}>
+          <div className={styles.section}>
+            <h2 className={styles.section_title}>Mes personnages favoris</h2>
+            <div className={styles.section_container}>
               {favCharCookie
                 ? JSON.parse(favCharCookie).map((elem) => {
                     return (
-                      <div key={elem.id}>
-                        <p>{elem.name}</p>
+                      <button key={elem.id} className={styles.element}>
                         {elem.picture ===
                         "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" ? (
                           <img
@@ -41,22 +44,23 @@ const Favorites = () => {
                             }}
                           />
                         )}
-                      </div>
+                        <p>{elem.name}</p>
+                      </button>
                     );
                   })
                 : ""}
             </div>
           </div>
 
-          <div>
-            <h2>Vos comics favoris</h2>
-            <div className="fav-comics">
+          <hr className={styles.separator} />
+
+          <div className={styles.section}>
+            <h2 className={styles.section_title}>Mes comics favoris</h2>
+            <div className={styles.section_container}>
               {favComicsCookie
                 ? JSON.parse(favComicsCookie).map((elem) => {
-                    // console.log("COMICS", myFav);
                     return (
-                      <div key={elem.id}>
-                        <p>{elem.title}</p>
+                      <button key={elem.id} className={styles.element}>
                         {elem.picture ===
                         "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" ? (
                           <img
@@ -75,7 +79,8 @@ const Favorites = () => {
                             }}
                           />
                         )}
-                      </div>
+                        <p>{elem.title}</p>
+                      </button>
                     );
                   })
                 : ""}

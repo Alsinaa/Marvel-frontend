@@ -1,0 +1,49 @@
+.comic_info {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: rgba(240, 240, 240, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.image {
+  max-width: 500px;
+}
+
+.image img {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  text-align: right;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.description {
+  opacity: 0.6;
+  margin-top: auto;
+  max-width: 500px;
+}
+
+@media screen and (max-width: 768px) {
+  .comic_info {
+    flex-direction: column-reverse;
+  }
+
+  .image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .content {
+    text-align: left;
+    padding: 16px;
+  }
+}

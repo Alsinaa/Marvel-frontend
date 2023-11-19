@@ -1,0 +1,45 @@
+.container {
+  color: white;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.section {
+  flex: 0 0 calc(50% - 16px);
+}
+
+.section_title {
+  font-size: 24px;
+}
+
+.section_container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.element {
+  color: currentColor;
+  flex: 0 0 calc(50% - 6px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.element img {
+  width: 100%;
+  display: block;
+}
+
+.separator {
+  border-color: var(--red);
+}
